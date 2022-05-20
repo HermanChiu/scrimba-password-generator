@@ -4,7 +4,9 @@ let pw3 = document.getElementById("pw3")
 let pw4 = document.getElementById("pw4")
 let pws = [pw1, pw2, pw3, pw4]
 let pwlength = document.getElementById("length").value
-let possibleLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+"]
+    // let possibleLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+"]
+let possibleLetters = '';
+for (var i = 32; i <= 127; i++) possibleLetters += String.fromCharCode(i);
 let id = ""
 
 async function copyText(id) {
@@ -49,4 +51,13 @@ function removePWs() {
         pws[j].innerText = "..."
         pws[j].value = "..."
     }
+}
+
+async function CheckPermission() {
+    const readPerm = await navigator.permissions.query({ name: 'clipboard-read', allowWithoutGesture: false });
+
+    const writePerm = await navigator.permissions.query({ name: 'clipboard-write', allowWithoutGesture: false });
+
+    // Will be 'granted', 'denied' or 'prompt':
+    alert('Read: ' + readPerm.state + '\nWrite: ' + writePerm.state);
 }
