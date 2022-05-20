@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1 class="gen">Generate a <br><span class="accent-text">random password</span></h1>
+    <p class="msg">Never use an insecure password again.</p>
+    <label for="length" id="lengthLabel">Enter length(8-30):</label>
+    <input type="number" id="length" value="12" min="8" max="30" inputmode="numeric">
+    <br>
+    <button class="generatePW" , onclick="generatePWs()">
+            <svg width="14" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.3.046A1 1 0 0 1 9 1v5h4a1 1 0 0 1 .82 1.573l-7 10A1 1 0 0 1 5 17v-5H1a1 1 0 0 1-.82-1.573l7-10A1 1 0 0 1 8.3.047Z" fill="#424242"/>
+                </svg> Generate passwords </button>
+    <button class="removePW" , onclick="removePWs()"> Clear passwords </button>
+    <div class="bottom">
+        <button id="pw1" onclick="copyText('pw1')" value="">...</button>
+        <button id="pw2" onclick="copyText('pw2')" value="">...</button>
+        <button id="pw3" onclick="copyText('pw3')" value="">...</button>
+        <button id="pw4" onclick="copyText('pw4')" value="">...</button>
+    </div>
+
+</body>
+<script src="index.js"></script>
+
+</html>
