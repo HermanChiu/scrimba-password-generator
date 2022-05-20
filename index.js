@@ -10,7 +10,7 @@ let id = ""
 async function copyText(id) {
     var text = document.getElementById(id)
     text.select()
-    text.setSelectionRange(0.99999)
+    text.setSelectionRange(0, 99999)
     navigator.clipboard.writeText(text.value).then(function() {
         alert("successfully copied");
     }, function(err) {
