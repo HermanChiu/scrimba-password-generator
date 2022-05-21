@@ -8,6 +8,11 @@ let pwlength = document.getElementById("length").value
 let possibleLetters = '';
 for (var i = 32; i <= 127; i++) possibleLetters += String.fromCharCode(i);
 let id = ""
+    // let lengthEl = document.getElementById("length")
+
+// lengthEl.addEventListener("input", function() {
+//     generatePWs()
+// })
 
 async function copyText(id) {
     var text = document.getElementById(id)
@@ -40,7 +45,7 @@ function generatePWs() {
     } else {
         for (let j = 0; j < pws.length; j++) {
             let pw = generate(pwlength)
-            pws[j].innerText = pw
+            pws[j].innerHTML = pw
             pws[j].value = pw
         }
     }
@@ -49,9 +54,19 @@ function generatePWs() {
 function removePWs() {
     for (let j = 0; j < pws.length; j++) {
         pws[j].innerText = "..."
+            //     pws[j].innerHTML = `<svg width="20" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            //     <path d="M5 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM12.5 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM17.5 5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="#202B3C"/>
+            //   </svg>`
         pws[j].value = "..."
     }
 }
+
+// for (let j = 0; j < pws.length; j++) {
+//     // pws[j].innerText = "..."
+//     pws[j].innerHTML = `<svg width="20" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+//     <path d="M5 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM12.5 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM17.5 5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="#202B3C"/>
+//   </svg>`
+// }
 
 async function CheckPermission() {
     const readPerm = await navigator.permissions.query({ name: 'clipboard-read', allowWithoutGesture: false });

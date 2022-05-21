@@ -63,8 +63,11 @@ body {
     background-color: #374F50;
     min-width: 40%;
     max-width: 40%;
-    min-height: 5%;
+    min-height: 2rem;
     display: flex;
+    /* background-image: url('img/ellipsis.svg');
+    background-repeat: no-repeat;
+    background-position: center; */
 }
 
 #length {
