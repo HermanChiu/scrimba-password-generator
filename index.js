@@ -45,7 +45,7 @@ function generatePWs() {
     } else {
         for (let j = 0; j < pws.length; j++) {
             let pw = generate(pwlength)
-            pws[j].innerHTML = pw
+            pws[j].innerText = pw
             pws[j].value = pw
         }
     }
