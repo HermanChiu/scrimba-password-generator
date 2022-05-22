@@ -7,7 +7,7 @@ let leng = document.getElementById("length")
 let pwlength = leng.value
     // let possibleLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+"]
 let possibleLetters = '';
-for (var i = 32; i <= 127; i++) possibleLetters += String.fromCharCode(i);
+for (var i = 32; i < 127; i++) possibleLetters += String.fromCharCode(i);
 let id = ""
     // let lengthEl = document.getElementById("length")
 
@@ -18,7 +18,7 @@ let id = ""
 async function copyText(id) {
     requestPermission()
     let copyText = document.getElementById(id)
-    console.log(copyText)
+    console.log(copyText.innerText)
     copyText.select()
     copyText.setSelectionRange(0, 99999)
     navigator.clipboard.writeText(text.value).then(function() {
@@ -48,7 +48,7 @@ function generatePWs() {
     } else {
         for (let j = 0; j < pws.length; j++) {
             let pw = generate(pwlength)
-            pws[j].innerHTML = pw
+            pws[j].innerText = pw
             pws[j].value = pw
         }
     }
