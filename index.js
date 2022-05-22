@@ -3,7 +3,8 @@ let pw2 = document.getElementById("pw2")
 let pw3 = document.getElementById("pw3")
 let pw4 = document.getElementById("pw4")
 let pws = [pw1, pw2, pw3, pw4]
-let pwlength = document.getElementById("length").value
+let leng = document.getElementById("length")
+let pwlength = leng.value
     // let possibleLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+"]
 let possibleLetters = '';
 for (var i = 32; i <= 127; i++) possibleLetters += String.fromCharCode(i);
@@ -15,9 +16,11 @@ let id = ""
 // })
 
 async function copyText(id) {
-    var text = document.getElementById(id)
-    text.select()
-    text.setSelectionRange(0, 99999)
+    requestPermission()
+    let copyText = document.getElementById(id)
+    console.log(copyText)
+    copyText.select()
+    copyText.setSelectionRange(0, 99999)
     navigator.clipboard.writeText(text.value).then(function() {
         alert("successfully copied");
     }, function(err) {
@@ -68,6 +71,12 @@ function removePWs() {
 //   </svg>`
 // }
 
+leng.addEventListener("change", function() {
+    let lenglabel2 = document.getElementById("lengthLabel2")
+    lenglabel2.innerHTML = document.getElementById("length").value
+})
+
+
 async function CheckPermission() {
     const readPerm = await navigator.permissions.query({ name: 'clipboard-read', allowWithoutGesture: false });
 
@@ -76,3 +85,16 @@ async function CheckPermission() {
     // Will be 'granted', 'denied' or 'prompt':
     alert('Read: ' + readPerm.state + '\nWrite: ' + writePerm.state);
 }
+
+async function requestPermission() {
+    const queryOpts = { name: 'clipboard-read', allowWithoutGesture: false };
+    const permissionStatus = await navigator.permissions.query(queryOpts);
+    // Will be 'granted', 'denied' or 'prompt':
+    console.log(permissionStatus.state);
+
+    // Listen for changes to the permission state
+    permissionStatus.onchange = () => {
+        console.log(permissionStatus.state);
+    };
+}
+requestPermission()
