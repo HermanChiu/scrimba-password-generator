@@ -76,7 +76,6 @@ body {
     color: white;
     margin: 10px;
     font-size: 1.5rem;
-    width: 200px;
 }
 
 input::-webkit-outer-spin-button,
@@ -85,7 +84,7 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-.label {
+#lengthLabel {
     color: #10D981;
     font-size: 1.5rem;
 }

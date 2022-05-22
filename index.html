@@ -7,12 +7,8 @@
 <body>
     <h1 class="gen">Generate a <br><span class="accent-text">random password</span></h1>
     <p class="msg">Never use an insecure password again.</p>
-    <label for="length" class="label" id="lengthLabel">Enter length(8-30):</label>
-    <label for="length" class="label" id="lengthLabel2"> 12</label>
-    <div class="slidecontainer">
-        <input type="range" min="8" max="30" value="12" step="1" class="slider" id="length">
-    </div>
-    <!-- <input type="number" id="length" value="12" min="8" max="30" inputmode="numeric"> -->
+    <label for="length" id="lengthLabel">Enter length(8-30):</label>
+    <input type="number" id="length" value="12" min="8" max="30" inputmode="numeric">
     <br>
     <button class="generatePW" onclick="generatePWs()">
             <svg width="14" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
